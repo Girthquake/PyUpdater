@@ -18,7 +18,7 @@ import urllib.request as ur
 requests.packages.urllib3.disable_warnings() 
 import ssl 
 updateurl = ""
-versionurl = "https://raw.githubusercontent.com/Girthquake/CardBuilder/master/Updater/version"
+versionurl = "https://raw.githubusercontent.com/Girthquake/PyUpdater/master/include/version"
 version=0
 updateversion=0
 if __name__ == '__main__':
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         with open('version', 'rb') as fp:
             version = pickle.load(fp)
             fp.close()
-    version_check = requests.get(versionurl)
+    version_check = requests.get(versionurl, verify=False)
     with open('vers', 'wb') as f:
         f.write(version_check.content)
         f.close
